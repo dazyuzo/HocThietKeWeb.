@@ -1,0 +1,57 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Chuyển đổi năm Dương lịch sang năm Âm lịch</title>
+</head>
+<body>
+	<h2>Chuyển đổi năm Dương lịch sang năm Âm lịch (Can Chi)</h2>
+	<label for="nam_duong_lich">Nhập năm Dương lịch:</label>
+	<input type="number" id="nam_duong_lich" placeholder="Nhập năm Dương lịch" required>
+	<button onclick="convertToCanChi()">Chuyển đổi</button>
+	<p id="result"></p>
+
+	<script>
+		function convertToCanChi() {
+			const nam_duong_lich = parseInt(document.getElementById("nam_duong_lich").value);
+			if (isNaN(nam_duong_lich) || nam_duong_lich <= 0) {
+				document.getElementById("result").innerText = "Vui lòng nhập một năm hợp lệ!";
+				return;
+			}
+			const can = nam_duong_lich % 10;
+			const chi = nam_duong_lich % 12;
+			const canList = ["Giáp", "Ất", "Bính", "Đinh", "Mậu", "Kỷ", "Canh", "Tân", "Nhâm", "Quý"];
+			const chiList = ["Tí", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi"];
+			let canName = "";
+			let chiName = "";
+			switch (can) {
+				case 0: canName = "Giáp"; break;
+				case 1: canName = "Ất"; break;
+				case 2: canName = "Bính"; break;
+				case 3: canName = "Đinh"; break;
+				case 4: canName = "Mậu"; break;
+				case 5: canName = "Kỷ"; break;
+				case 6: canName = "Canh"; break;
+				case 7: canName = "Tân"; break;
+				case 8: canName = "Nhâm"; break;
+				case 9: canName = "Quý"; break;
+			}
+			switch (chi) {
+				case 0: chiName = "Tí"; break;
+				case 1: chiName = "Sửu"; break;
+				case 2: chiName = "Dần"; break;
+				case 3: chiName = "Mão"; break;
+				case 4: chiName = "Thìn"; break;
+				case 5: chiName = "Tỵ"; break;
+				case 6: chiName = "Ngọ"; break;
+				case 7: chiName = "Mùi"; break;
+				case 8: chiName = "Thân"; break;
+				case 9: chiName = "Dậu"; break;
+				case 10: chiName = "Tuất"; break;
+				case 11: chiName = "Hợi"; break;
+			}
+			document.getElementById("result").innerText = "Năm Âm lịch là: " + canName + " " + chiName;
+		}
+	</script>
+</body>
+</html>

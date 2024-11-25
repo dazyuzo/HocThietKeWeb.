@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang đăng ký thành viên</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #f7cac9, #92a8d1), url('https://via.placeholder.com/1920x1080');
+    background-size: cover;
+    background-blend-mode: overlay;
+    padding: 20px;
+}
+
+.mytextbox {
+    color: #99FF33;
+    background-color: #006699;
+    border: 1px solid #996633;
+    width: 300px;
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#form1 table {
+    border: 5px groove #993366;
+    background-color: #FFDDDD;
+    color: #003399;
+    margin: 0px auto;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#form1 table caption {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #993366;
+    text-shadow: 2px 2px 4px #666;
+    margin-bottom: 10px;
+}
+
+#form1 table td, #form1 table th {
+    border: 1px solid #CC9999;
+    padding: 10px;
+    border-radius: 8px;
+    text-shadow: 1px 1px 2px #aaa;
+}
+
+#form1 table th {
+    background-color: #993366;
+    color: white;
+}
+
+#form1 table td input[type="submit"], 
+#form1 table td input[type="reset"] {
+    background-color: #006699;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+}
+
+#form1 table td input[type="submit"]:hover, 
+#form1 table td input[type="reset"]:hover {
+    background-color: #004466;
+}
+    </style>
+</head>
+<body>
+    <form action="" method="post" id="form1">
+        <table border="1" cellspacing="0" cellpadding="6" width="500">
+            <caption align="center">ĐĂNG KÝ THÀNH VIÊN YÊU CLB NHẠC</caption>
+            
+            <!-- Họ tên -->
+            <tr class="section 1">
+                <th>Họ Tên</th>
+                <td><input type="text" class="mytextbox" id="txtHoTen" placeholder="Họ và Tên" required></td>
+            </tr>
+            
+            <!-- Tên đăng nhập -->
+            <tr class="section 2">
+                <th>Tên đăng nhập</th>
+                <td><input type="text" class="mytextbox" id="txtUserName" placeholder="Tài khoản" required></td>
+            </tr>
+            
+            <!-- Mật khẩu -->
+            <tr class="section 3">
+                <th>Mật khẩu</th>
+                <td><input type="password" class="mytextbox" id="txtPass" placeholder="Mật khẩu" required></td>
+            </tr>
+            
+            <!-- Gõ lại mật khẩu -->
+            <tr class="section 4">
+                <th>Gõ lại mật khẩu</th>
+                <td><input type="password" class="mytextbox" id="txtRepass" placeholder="Nhập lại mật khẩu" required></td>
+            </tr>
+            
+            <!-- Giới tính -->
+            <tr class="section 5">
+                <th>Giới tính</th>
+                <td>
+                    <input type="radio" name="rdGioiTinh" value="0" checked> Nam
+                    <input type="radio" name="rdGioiTinh" value="1"> Nữ
+                </td>
+            </tr>
+            
+            <!-- Ngoại ngữ -->
+            <tr class="section 6">
+                <th>Ngoại ngữ</th>
+                <td>
+                    <input type="checkbox" id="chkAnh"><label for="chkAnh">Anh văn</label>
+                    <input type="checkbox" id="chkPhap"><label for="chkPhap">Pháp văn</label>
+                    <input type="checkbox" id="chkHoa"><label for="chkHoa">Hoa văn</label>
+                </td>
+            </tr>
+            
+            <!-- Nghề nghiệp -->
+            <tr class="section 7">
+                <th>Nghề nghiệp</th>
+                <td>
+                    <select name="Nghề Nghiệp" class="mytextbox" id="cboNgheNghiep" required>
+                        <option value="0">Bạn làm nghề gì</option>
+                        <option value="1">Học sinh - sinh viên</option>
+                        <option value="2">Giáo viên</option>
+                        <option value="3">Nhân viên</option>
+                    </select>
+                </td>
+            </tr>
+            
+            <!-- Hình ảnh -->
+            <tr class="section 8">
+                <th>Hình</th>
+                <td><input type="file" class="mytextbox" id="fHinh" required></td>
+            </tr>
+            
+            <!-- Sở thích -->
+            <tr class="section 9">
+                <th>Sở thích</th>
+                <td><textarea name="Sở thích" class="mytextbox" id="txtSothich" required></textarea></td>
+            </tr>
+
+            <!-- Độ tuổi -->
+            <tr class="section 10">
+                <th>Độ tuổi</th>
+                <td>
+                    <input type="number" class="mytextbox" id="txtTuoi" min="18" max="45" value="20" required>
+                </td>
+            </tr>
+
+            <!-- Thành phố -->
+            <tr class="section 11">
+                <th>Thành phố</th>
+                <td>
+                    <input list="cities" class="mytextbox" id="txtThanhpho" placeholder="Chọn thành phố" required>
+                    <datalist id="cities">
+                        <option value="Thành phố Hồ Chí Minh"></option>
+                        <option value="Hà Nội"></option>
+                        <option value="Đà Lạt"></option>
+                        <option value="Đà Nẵng"></option>
+                        <option value="Hải Phòng"></option>
+                        <option value="Cần Thơ"></option>
+                        <option value="Nha Trang"></option>
+                        <option value="Vũng Tàu"></option>
+                        <option value="Cà Mau"></option>
+                        <option value="Sóc Trăng"></option>
+                    </datalist>
+                </td>
+            </tr>
+            
+            <!-- Nút gửi -->
+            <tr class="section 12">
+                <th colspan="2" align="center">
+                    <input type="submit" id="btnDangKy" value="Đăng Ký">
+                    <input type="reset" id="btnXoa" value="Làm lại">
+                    <input type="hidden" name="NgayDangKy" value="03/23/2023">
+                </th>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

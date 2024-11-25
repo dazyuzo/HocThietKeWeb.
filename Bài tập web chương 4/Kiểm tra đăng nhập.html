@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập</title>
+    <style>
+        table, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Đăng nhập</h2>
+    <table>
+        <tr>
+            <td>Username</td>
+            <td><input type="text" id="username" placeholder="Username" required></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" id="password" placeholder="Password" required></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p id="errorMessage" style="color: red; display: none;">Sai thông tin đăng nhập!</p>
+                <p id="successMessage" style="display: none;">Chúc mừng, bạn đã đăng nhập thành công!</p>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button id="loginButton" onclick="login()">Login</button></td>
+        </tr>
+    </table>
+
+    <script>
+        const correctUsername = "admin";
+        const correctPassword = "admin";
+
+        function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if (username === correctUsername && password === correctPassword) {
+                document.getElementById("errorMessage").style.display = "none";
+                document.getElementById("successMessage").style.display = "block";
+                document.getElementById("loginButton").textContent = "Logout";
+            } else {
+                document.getElementById("errorMessage").style.display = "block";
+                document.getElementById("successMessage").style.display = "none";
+            }
+        }
+
+        function logout() {
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+            document.getElementById("errorMessage").style.display = "none";
+            document.getElementById("successMessage").style.display = "none";
+            document.getElementById("loginButton").textContent = "Login";
+        }
+    </script>
+</body>
+</html>

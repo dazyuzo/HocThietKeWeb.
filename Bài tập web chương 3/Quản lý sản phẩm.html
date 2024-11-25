@@ -1,0 +1,62 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Quản lý sản phẩm</title>
+</head>
+<body>
+	<h2>Quản lý sản phẩm</h2>
+
+	<input type="text" id="productName" placeholder="Nhập tên sản phẩm">
+	<button onclick="addProduct()">Thêm sản phẩm</button>
+
+	<h3>Danh sách sản phẩm:</h3>
+	<ul id="productList"></ul>
+
+	<script>
+		let products = [];
+
+		function displayProducts() {
+			const productList = document.getElementById("productList");
+			productList.innerHTML = "";
+			products.forEach((product, index) => {
+				const li = document.createElement("li");
+				li.innerHTML = `
+					${product} 
+					<button onclick="editProduct(${index})">Sửa</button>
+					<button onclick="deleteProduct(${index})">Xóa</button>
+				`;
+				productList.appendChild(li);
+			});
+		}
+
+		function addProduct() {
+			const productName = document.getElementById("productName").value.trim();
+			if (productName) {
+				products.push(productName);
+				document.getElementById("productName").value = "";
+				displayProducts();
+			} else {
+				alert("Vui lòng nhập tên sản phẩm!");
+			}
+		}
+
+		function editProduct(index) {
+			const newProductName = prompt("Nhập tên sản phẩm mới:", products[index]);
+			if (newProductName !== null && newProductName.trim() !== "") {
+				products[index] = newProductName.trim();
+				displayProducts();
+			}
+		}
+
+		function deleteProduct(index) {
+			if (confirm("Bạn có chắc muốn xóa sản phẩm này?")) {
+				products.splice(index, 1);
+				displayProducts();
+			}
+		}
+
+		displayProducts();
+	</script>
+</body>
+</html>

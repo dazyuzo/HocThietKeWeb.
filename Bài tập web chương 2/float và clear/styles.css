@@ -1,0 +1,29 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+.float-left {
+    width: 45%;
+    float: left;
+    margin-right: 5%;
+    background-color: lightblue;
+    padding: 15px;
+}
+.float-right {
+    width: 45%;
+    float: right;
+    margin-left: 5%;
+    background-color: lightgreen;
+    padding: 15px;
+}
+.centered {
+    text-align: center;
+    background-color: lightyellow;
+    padding: 15px;
+    clear: both;  /* Đảm bảo nội dung này không bị ảnh hưởng bởi float */
+}
+.clear {
+    clear: both;
+}
